@@ -8,13 +8,7 @@ const allowedorigins = process.env.FRONTEND_URL.split(',');
 
 app.use(cors({
     // origin:"*",
-    origin : (origin, callback) => {
-        if(allowedorigins.includes(origin)){
-            callback(null, true);
-        }else{
-            callback(new Error("Not allowed by cors!"))
-        }
-    },
+    origin : process.env.FRONTEND_URL,
     credentials: true,
 }));
 
