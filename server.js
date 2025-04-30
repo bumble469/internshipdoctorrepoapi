@@ -7,14 +7,14 @@ const addDoctor = require("./routes/AddDoctorRoute");
 const allowedorigins = process.env.FRONTEND_URL.split(',');
 
 app.use(cors({
-    origin:"*",
-    // origin : (origin, callback) => {
-    //     if(allowedorigins.includes(origin)){
-    //         callback(null, true);
-    //     }else{
-    //         callback(new Error("Not allowed by cors!"))
-    //     }
-    // },
+    // origin:"*",
+    origin : (origin, callback) => {
+        if(allowedorigins.includes(origin)){
+            callback(null, true);
+        }else{
+            callback(new Error("Not allowed by cors!"))
+        }
+    },
     credentials: true,
 }));
 
