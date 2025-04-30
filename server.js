@@ -14,7 +14,8 @@ app.use(cors({
 app.use(express.json());
 app.use("/api", getDoctorDetails, addDoctor);
 
-const port = process.env.DB_PORT;
-app.listen(port || 5000, () => {
-    console.log(`App running at port ${port}`);
-})
+const PORT = process.env.PORT || 5000;
+;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
